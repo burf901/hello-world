@@ -1,0 +1,44 @@
+var TheBoss;
+
+function Do_Re_Me_Fa_Sol_La_Ti_Do() {
+}
+
+whenSetup(function () {
+  setBackgroundEffectWithPalette("fireworks", "neon");
+  makeNewDanceSpriteGroup(20, "ROBOT", "border");
+  makeNewDanceSpriteGroup(10, "BEAR", "x");
+  makeNewDanceSpriteGroup(5, "SHARK", "plus");
+  makeNewDanceSpriteGroup(10, "ALIEN", "grid");
+  setVisibleEach("ALIEN", false);
+  changeMoveEachLR(sprites, MOVES.ClapHigh, -1);
+  startMappingEach(sprites, "scale", "bass");
+});
+
+whenKey("enter", function () {
+  setVisibleEach("ALIEN", true);
+});
+
+whenKey("down", function () {
+  layoutSprites(sprites, "diamond");
+});
+
+whenKey("up", function () {
+  makeNewDanceSprite("DOG", 'TheBoss', {x: 200, y: 200});
+  alternateMoves(sprites, 2, MOVES.ClapHigh, MOVES.Drop);
+});
+
+whenKey("space", function () {
+  changeMoveEachLR("DOG", MOVES.Floss, -1);
+});
+
+whenKey("right", function () {
+  setDanceSpeed('TheBoss', 2);
+});
+
+whenKey("0", function () {
+  setVisibleEach("ALIEN", false);
+});
+
+whenKey("left", function () {
+  changeMoveEachLR(sprites, MOVES.Dab, 1);
+});
